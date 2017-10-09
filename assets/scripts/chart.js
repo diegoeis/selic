@@ -22,7 +22,7 @@
           zoomType: 'x'
         },
         title: {
-          text: 'Taxa Selic'
+          text: 'Evolução da Taxa Selic Acumulado Mensal'
         },
         subtitle: {
           text: 'Fonte: Banco Central - Portal Brasileiro de Dados Abertos'
