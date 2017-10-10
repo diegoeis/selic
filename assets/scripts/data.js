@@ -59,7 +59,7 @@
         },
         plotOptions: {
           series: {
-            lineWidth: 5,
+            lineWidth: 1,
             lineColor: '#fff',
             marginLeft: 0,
             marker: {
