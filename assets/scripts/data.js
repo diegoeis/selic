@@ -82,7 +82,7 @@
               },
               stops: [
                 [0, '#2F3238'],
-                [1, Highcharts.Color('#44464D').setOpacity(0).get('rgba')]
+                [1, Highcharts.Color('#4D5057').setOpacity(0).get('rgba')]
               ]
             },
           }
