@@ -11,31 +11,11 @@ function(){
   }
 
   selic.api.handleApi = () => {
-    // axios.get(apiSelic)
-    // .then(response => {
-    //   selic.info.init(response.data)
-    // })
-    // .catch(response => console.error(response))
-
-    $.ajax({
-        type: 'GET',
-      
-        url: apiSelic,
-      
-        contentType: 'text/plain',
-      
-        xhrFields: {
-          withCredentials: false
-        },
-      
-        success: function(data) {
-            selic.info.init(data)
-        },
-      
-        error: function() {
-          console.error(data)
-        }
-      });
+    axios.get(apiSelic)
+    .then(response => {
+      selic.info.init(response.data)
+    })
+    .catch(response => console.error(response))
   }
 
 
