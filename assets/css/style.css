@@ -12,3 +12,87 @@
   min-width: 310px; 
   min-height: 600px;
 }
+
+.sel-chart {
+  background: #2A2D33;
+}
+
+.highcharts-tick {
+  stroke: #3A3C42
+}
+
+.highcharts-label.highcharts-data-label.highcharts-data-label-color-0 tspan {
+  font-size: 13px; 
+  font-weight: normal;
+}
+
+.highcharts-text-outline {
+  /* stroke: transparent;
+  fill: transparent;
+  display: none */
+}
+
+.highcharts-legend {
+  display: none;
+}
+
+.highcharts-title {
+  color: #fff !important;
+}
+.highcharts-title tspan {
+  color: #fff;
+  font: 25px 'EB Garamond', sans-serif;
+}
+
+.highcharts-axis.highcharts-yaxis text {
+  display: none;
+}
+
+.sel-text {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.sel-text h1 {
+  color: #000;
+  font: 30px 'EB Garamond';
+}
+
+.sel-text h1:first-child {
+  text-align: center;
+}
+
+
+.sel-table-info {
+  width: 100%;
+  max-width: 400px;
+  margin: 50px auto;
+  border-collapse: collapse
+}
+
+.sel-table-info thead {
+  border-bottom: 1px solid #000;
+}
+
+.sel-table-info th {
+  text-align: center;
+  padding: 15px;
+  font: 300 20px Roboto;
+  width: 50%;
+}
+
+.sel-table-info td {
+  border-bottom: 1px solid #E2E2E2;
+  font: 300 15px Roboto;
+  text-align: center;
+  padding: 15px
+}
+
+
+
+@media (max-width: 500px) {
+  .sel-chart {
+    display: none;
+  } 
+}
