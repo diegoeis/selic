@@ -1,28 +1,30 @@
 (
   function () {
-
     selic.info = {}
 
-    const dates = []
-    const index = []
-
     selic.info.init = (data) => {
-      for (var i = 0; i < data.length; i++) {
-        dates.push(data[i].data)
-        index.push(parseFloat(data[i].valor))
-      }
-      selic.info.graph(dates, index)
-      selic.info.table(dates.reverse(), index.reverse())
+      const parsedData = data.map(s => ({ 
+        date: s.data,
+        index: parseFloat(s.valor)
+      }))
+
+      fillGraph(parsedData)
+      fillTable(parsedData)
     }
 
-    selic.info.table = (dates, index) => {
-      $.each(dates, function(i, item) {
-        $('<tr><td>'+dates[i]+'</td><td>'+index[i]+'</td></tr>').appendTo('.sel-table-info')
-      });
+    const fillTable = (data) => {
+      data.reverse().forEach(d => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+          <td>${d.date}</td>
+          <td>${d.index}</td>
+        `
+
+        document.querySelector('.sel-table-info').appendChild(row)
+      })
     }
 
-    selic.info.graph = (dates, index) => {
-
+    const fillGraph = (data) => {
       Highcharts.chart('selicChart', {
         chart: {
           type: 'line',
@@ -48,7 +50,7 @@
           }
         },
         xAxis: {
-          categories: ["01/01/2015", "01/02/2015", "01/03/2015", "01/04/2015", "01/05/2015", "01/06/2015", "01/07/2015", "01/08/2015", "01/09/2015", "01/10/2015", "01/11/2015", "01/12/2015", "01/01/2016", "01/02/2016", "01/03/2016", "01/04/2016", "01/05/2016", "01/06/2016", "01/07/2016", "01/08/2016", "01/09/2016", "01/10/2016", "01/11/2016", "01/12/2016", "01/01/2017", "01/02/2017", "01/03/2017", "01/04/2017", "01/05/2017", "01/06/2017", "01/07/2017", "01/08/2017", "01/09/2017", "01/10/2017"],
+          categories: data.map(d => d.date),
           lineColor: '#3A3C42',
         },
         yAxis: {
@@ -90,12 +92,10 @@
         series: [{
           name: 'Taxa Selic',
           type: 'area',
-          data: index,
+          data: data.map(d => d.index),
           enableMouseTracking: true
         }]
       });
-
     }
-
   }
 )()
