@@ -15,14 +15,10 @@
     const fillTable = (data) => {
       data.reverse().forEach(d => {
         const row = document.createElement('tr')
-        const dateColumn = document.createElement('td')
-        dateColumn.innerText = d.date
-        
-        const indexColumn = document.createElement('td')
-        indexColumn.innerText = d.index
-        
-        row.appendChild(dateColumn)
-        row.appendChild(indexColumn)
+        row.innerHTML = `
+          <td>${d.date}</td>
+          <td>${d.index}</td>
+        `
 
         document.querySelector('.sel-table-info').appendChild(row)
       })
